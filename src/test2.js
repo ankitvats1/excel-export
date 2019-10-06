@@ -207,18 +207,18 @@ class ExceljsReact extends Component {
        {
         Header: 'User ID',
         accessor: 'userId', // String-based value accessors!
-        width: 150
+        width: 100
        },
        {
         Header: 'Title',
         accessor: 'title', // String-based value accessors!
-        // width: 50
+        width: 250
        },
        {
         id: 'completed',
         Header: 'Completed',
         accessor: d => d.completed.toString(), // String-based value accessors!
-        width: 150
+        width: 100
        }
     ];
     return (
