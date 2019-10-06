@@ -124,8 +124,8 @@ class ExceljsReact extends Component {
   downloadExcel = () => {
     var workbook = new ExcelJS.Workbook();
 
-    workbook.creator = "Paul Leger";
-    workbook.lastModifiedBy = "Paul Leger";
+    workbook.creator = "Ankit Vats";
+    workbook.lastModifiedBy = "Ankit Vats";
     workbook.created = new Date();
     workbook.modified = new Date();
     workbook.lastPrinted = new Date();
