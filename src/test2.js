@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ExcelJS from "exceljs";
 import { saveAs } from "file-saver";
 import axios from 'axios';
+import ReactTable from 'react-table';
 
 class ExceljsReact extends Component {
     state = {
@@ -133,10 +134,10 @@ class ExceljsReact extends Component {
     var worksheet = workbook.addWorksheet("Publications");
     worksheet.views = [{ state: "frozen", xSplit: 0, ySplit: 1 }];
     worksheet.columns = [
-        { header: 'Ward Number', key: 'id', width: 15 },
-        { header: 'Total Property Units', key: 'userId', width: 15 },
-        { header: 'No. of Propertes Covered', key: 'title', width: 50 },
-        { header: 'Collection Percentage', key: 'completed', width: 25 }
+        { header: 'ID', key: 'id', width: 15 },
+        { header: 'User ID', key: 'userId', width: 15 },
+        { header: 'Title', key: 'title', width: 50 },
+        { header: 'Completed', key: 'completed', width: 25 }
     ];
 
     ['A1', 'B1', 'C1', 'D1'].map(key => {
@@ -197,7 +198,38 @@ class ExceljsReact extends Component {
   }
   render() {
       console.log(this.state);
-    return <button onClick={this.downloadExcel}>Download</button>
+      const columns = [
+        {
+        Header: 'ID',
+        accessor: 'id', // String-based value accessors!
+        width: 100
+       },
+       {
+        Header: 'User ID',
+        accessor: 'userId', // String-based value accessors!
+        width: 150
+       },
+       {
+        Header: 'Title',
+        accessor: 'title', // String-based value accessors!
+        // width: 50
+       },
+       {
+        id: 'completed',
+        Header: 'Completed',
+        accessor: d => d.completed.toString(), // String-based value accessors!
+        width: 150
+       }
+    ];
+    return (
+      <>
+      <button onClick={this.downloadExcel}>Download</button>
+       <ReactTable data={this.state.data} columns={columns}>
+        </ReactTable>
+      </>
+    )
+    
+    
   }
 }
 
