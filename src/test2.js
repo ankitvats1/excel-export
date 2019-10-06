@@ -131,7 +131,7 @@ class ExceljsReact extends Component {
     workbook.modified = new Date();
     workbook.lastPrinted = new Date();
 
-    var worksheet = workbook.addWorksheet("Publications");
+    var worksheet = workbook.addWorksheet("Todos");
     worksheet.views = [{ state: "frozen", xSplit: 0, ySplit: 1 }];
     worksheet.columns = [
         { header: 'ID', key: 'id', width: 15 },
@@ -192,7 +192,7 @@ class ExceljsReact extends Component {
         type:
           "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
       });
-      var fileName = "Pulications_" + Math.floor(new Date() / 1000) + '.xlsx';
+      var fileName = "Todos_" + Math.floor(new Date() / 1000) + '.xlsx';
       saveAs(blob, fileName);
     });
   }
